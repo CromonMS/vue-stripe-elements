@@ -3,6 +3,11 @@ export const Stripe = {
   createToken: null,
   createSource: null,
   retrieveSource: null,
+  paymentRequest: null,
+  redirectToCheckout: null,
+  retrievePaymentIntent: null,
+  handleCardPayment: null,
+  // confirmPaymentIntent: null,
   elements: null
 }
 
@@ -50,6 +55,11 @@ export function create(elementType, key_or_stripe, options = {}) {
   Stripe.createToken = (options) => Stripe.instance.createToken(element, options)
   Stripe.createSource = (options) => Stripe.instance.createSource(element, options)
   Stripe.retrieveSource = (options) => Stripe.instance.retrieveSource(options)
+  Stripe.paymentRequest = (options) => Stripe.instance.paymentRequest(options)
+  Stripe.redirectToCheckout = (options) => Stripe.instance.redirectToCheckout(options)
+  Stripe.retrievePaymentIntent = (options) => Stripe.instance.retrievePaymentIntent(options)
+  Stripe.handleCardPayment = (options) => Stripe.instance.handleCardPayment(options, element)
+  // Stripe.confirmPaymentIntent = (options) => Stripe.instance.confirmPaymentIntent(options, element)
 
   return element
 }
@@ -60,4 +70,9 @@ export function destroy() {
     Stripe.createToken = null
     Stripe.createSource = null
     Stripe.retrieveSource = null
+    Stripe.paymentRequest = null
+    Stripe.redirectToCheckout = null
+    Stripe.retrievePaymentIntent = null
+    Stripe.handleCardPayment = null
+    // Stripe.confirmPaymentIntent = null
 }
